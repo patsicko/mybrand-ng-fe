@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mybrand-ng-fe';
+
+  isDark:boolean;
+
+  changeTheme(theme:boolean){
+  this.isDark=theme;
+
+  }
+
 }
