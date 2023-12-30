@@ -21,6 +21,7 @@ import { PagesModule } from './UI/pages/pages.module';
 import { TemplatesModule } from './UI/templates/templates.module';
 
 
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -39,7 +40,8 @@ import { TemplatesModule } from './UI/templates/templates.module';
         PagesModule,
         AppRoutingModule,
        
-        TemplatesModule
+        TemplatesModule,
+       
        
     ],
     exports:[

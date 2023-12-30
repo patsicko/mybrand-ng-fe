@@ -4,6 +4,8 @@ import { AboutComponent } from './UI/pages/about/about.component';
 import { ContactComponent } from './UI/pages/contact/contact.component';
 import { HomepageComponent } from './UI/pages/homepage/homepage.component';
 import { BlogComponent } from './UI/pages/blog/blog.component';
+import { SignupPageComponent } from './UI/pages/signup-page/signup-page.component';
+import { LoginPageComponent } from './UI/pages/login-page/login-page.component';
 
 const routes: Routes = [
   {
@@ -23,6 +25,14 @@ const routes: Routes = [
   {
     path:"contact",
     component:ContactComponent
+  },
+  {
+    path:'signup',
+    component:SignupPageComponent
+  },
+  {
+    path:'login',
+    component:LoginPageComponent
   }
   
 ];

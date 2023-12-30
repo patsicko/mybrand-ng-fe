@@ -1,14 +1,14 @@
 
 
 
-<div class="my-20 fixed mt-0 w-full ">
+<div class="my-20 fixed mt-0 w-full header">
 
 <app-header (toggleTheme)="changeTheme($event)">
 
 </app-header>
 </div>
 
-<div    [class]="isDark ? 'bg-gray-dark text-white ' : ''">
+<div [class]="isDark ? 'bg-gray-dark text-white main' : 'main'">
 
 <router-outlet></router-outlet>
 

@@ -1,20 +1,8 @@
 
 
-    <div [class]="   isDark ? 'bg-gray text-white p-5 flex flex-col gap-6 xl:flex-row items-center justify-around gap-1 xl:gap-80  ' : 'bg-sky p-5 flex flex-col gap-6 xl:flex-row items-center justify-around gap-1 xl:gap-80'" >
+    <div [class]="isDark ? 'bg-gray text-white p-5  flex flex-row  items-center justify-around h-auto' : 'bg-sky p-5  flex flex-row items-center justify-around h-auto'">
 
-         <button class="text-white text-xl md:hidden" (click)="toggleMenu()">
-            <fa-icon [icon]="bar"></fa-icon>
-          </button>
-
-        <div  class="text-2xl font-bold">
-            MANIBAHO Patrick
-        </div>
-
-        
-        <div  [ngClass]="{
-            'hidden md:flex md:flex-row': !isSmall,
-            'flex flex-col': isSmall
-          }">
+        <div [class]="showFlex ? 'flex flex-col sticky md:hidden':'hidden'" >
             <ng-container *ngFor="let route of routeList">
                 <app-routerlink [route]="route.route" [linkClass]="route.linkClass"  [linkText]="route.linkText" ></app-routerlink>
             </ng-container>
@@ -31,14 +19,52 @@
                         <app-routerlink route="/logout" linkClass="text-xl px-5" linkText="Logout"></app-routerlink>
                 </ng-container>   
         </div>
-        
-        
-            <div class="">
-                <fa-icon class="text-white text-xl" (click)="changeTheme()" *ngIf="isDark" [icon]="moon"></fa-icon>
-                <fa-icon class="text-white text-xl" (click)="changeTheme()" *ngIf="!isDark" [icon]="sun"></fa-icon>
+
+        <div  class="text-2xl font-bold  bg-blue text-white p-3 custom-box">
+            MP
+        </div>
+            
+            <div class="hidden md:flex" >
+                <ng-container *ngFor="let route of routeList">
+                    <app-routerlink [route]="route.route" [linkClass]="route.linkClass"  [linkText]="route.linkText" ></app-routerlink>
+                </ng-container>
+    
+             
+                <ng-container *ngIf="showSignup && !logedIn">
+                    <app-routerlink route="/signup" linkClass="text-xl px-5" linkText="Signup"></app-routerlink>
+                    </ng-container>
+                    
+                    <ng-container *ngIf="!logedIn">
+                        <app-routerlink route="/login" linkClass="text-xl px-5" linkText="Login"></app-routerlink>
+                    </ng-container>
+                    <ng-container *ngIf="logedIn">
+                            <app-routerlink route="/logout" linkClass="text-xl px-5" linkText="Logout"></app-routerlink>
+                    </ng-container>   
             </div>
-        
-        
+            
+            
+               
+              
+      
+
+        <div class="">
+            <fa-icon class="text-white text-xl" (click)="changeTheme()" *ngIf="isDark" [icon]="moon"></fa-icon>
+            <fa-icon class="text-white text-xl" (click)="changeTheme()" *ngIf="!isDark" [icon]="sun"></fa-icon>
+        </div>
+
+        <ng-container *ngIf="!showFlex">
+            <button class="text-white text-xl md:hidden" (click)="toggleMenu()">
+                <fa-icon [icon]="bar"></fa-icon>
+              </button>
+        </ng-container>
+
+        <ng-container *ngIf="showFlex">
+            <button class="text-white text-xl md:hidden" (click)="toggleMenu()">
+                <fa-icon [icon]="close"></fa-icon>
+              </button>
+        </ng-container>
+       
+
     </div>
 
     

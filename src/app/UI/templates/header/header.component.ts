@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { faSun,faMoon,faBars } from '@fortawesome/free-solid-svg-icons';
+import { faSun,faMoon,faBars,faX } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -12,14 +12,15 @@ export class HeaderComponent {
 sun=faSun
 moon=faMoon
 bar=faBars
-isSmall:boolean=false
+close=faX
+showFlex:boolean=false
 
   routeList=[
     {
-      route:"/", linkClass:"text-xl px-5" , linkText:"Home"
+      route:"/", linkClass:"text-xl px-5 my-5" , linkText:"Home"
     },
     {
-      route:"/about", linkClass:"text-xl px-5" ,linkText:"About"
+      route:"/about", linkClass:"text-xl px-5 " ,linkText:"About"
     },
     {
       route:"/blog", linkClass:"text-xl px-5" , linkText:"blog"
@@ -29,7 +30,7 @@ isSmall:boolean=false
     }
   ]
 
-  isDark:boolean=true;
+  isDark:boolean=false;
 
   showSignup:boolean=true;
   logedIn:boolean=false
@@ -47,7 +48,7 @@ isSmall:boolean=false
 
 
   toggleMenu(){
-this.isSmall=!this.isSmall
+this.showFlex=!this.showFlex
   }
 
 

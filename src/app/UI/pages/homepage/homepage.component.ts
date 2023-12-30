@@ -1,4 +1,10 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import {
+  SocialAuthService,
+  GoogleLoginProvider,
+  SocialUser,
+} from '@abacritt/angularx-social-login';
+
 
 
 
@@ -13,7 +19,12 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 
 })
 export class HomepageComponent implements OnInit{
-// sentence='hello';
+
+  constructor(
+   
+    private socialAuthService: SocialAuthService
+  ){}
+
   sentence='Hello there ! 🌎  My name is MANIBAHO Patrick, I am a Fullstack Software Engineer,  Welcome to my brand !';
   displayedText='';
  
