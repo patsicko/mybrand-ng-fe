@@ -12,6 +12,7 @@ export class InputMoleculeComponent {
 @Input() groupName:FormGroup;
 @Input() cols:string
 @Input() rows:string;
+@Input() quillConfigurationModule:QuillConfiguration;
 
 
 

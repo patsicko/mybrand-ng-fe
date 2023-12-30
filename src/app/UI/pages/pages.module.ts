@@ -15,6 +15,8 @@ import {
   SocialAuthServiceConfig,
 } from '@abacritt/angularx-social-login';
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import { QuillModule } from 'ngx-quill'
+
 
 
 
@@ -56,7 +58,8 @@ import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
         TemplatesModule,
         AtomsModule,
         ReactiveFormsModule,
-        SocialLoginModule
+        SocialLoginModule,
+        QuillModule
        
     ]
 })

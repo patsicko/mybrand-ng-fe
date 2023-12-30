@@ -3,6 +3,7 @@ import { TInputProps } from '../../molecules/input-molecule/inputDTO';
 import { FormControl, FormGroup,FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -47,7 +48,7 @@ export class ContactComponent {
   textInput:TInputProps={
     type: 'textarea',
     placeholder: 'add your message',
-    className: 'border rounded w-full p-2   h-60 ',
+    className: 'rounded w-full p-2   h-60 ',
     label: 'Message',
     controlName: 'message'
   }
@@ -78,7 +79,39 @@ constructor(private formBuilder :FormBuilder,
 
   submitForm(){
     this.toastr.success('Your message sent successfully');
+    // this.toastr.error('Your message not sent successfully');
+
     this.data=JSON.stringify(this.myForm.value)
   }
   
+
+
+QuillConfiguration = {
+  toolbar: [
+    ['bold', 'italic', 'underline', 'strike'],        
+    ['blockquote', 'code-block'],
+
+    [{ 'header': 1 }, { 'header': 2 }],               
+    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+    [{ 'script': 'sub'}, { 'script': 'super' }],      
+    [{ 'indent': '-1'}, { 'indent': '+1' }],         
+    [{ 'direction': 'rtl' }],                       
+
+    [{ 'size': ['small', false, 'large', 'huge'] }], 
+    
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+    [{ 'color': [] }, { 'background': [] }],          
+    [{ 'font': [] }],
+    [{ 'align': [] }],
+
+    ['clean'],                                       
+
+    ['link', 'image', 'video']                        
+  ]
+};
+
+
+
+
 }

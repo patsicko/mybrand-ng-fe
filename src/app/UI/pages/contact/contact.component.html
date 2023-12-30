@@ -35,11 +35,18 @@
          
         
        <div class="w-full">
-         <app-input-molecule [inputProps]="textInput" [groupName]="myForm" ></app-input-molecule>
+         <app-input-molecule [inputProps]="textInput" [groupName]="myForm" [quillConfigurationModule]="QuillConfiguration" ></app-input-molecule>
+         
          <app-button-atom btnValue="submit" type="button" (click)="submitForm()" [groupName]="myForm" [disabled]="!myForm.valid" className="border bg-blue text-white p-2 rounded-lg w-40 "></app-button-atom>
        </div>
      
          {{data}}
+         {{myForm.value.message}}
+
+         <div [innerHTML]="myForm.value.message"></div>
+
+
+         
      
      </div>
     

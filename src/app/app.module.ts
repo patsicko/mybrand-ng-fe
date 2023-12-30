@@ -20,6 +20,7 @@ import { TextMoleculeComponent } from './UI/molecules/text-molecule/text-molecul
 import { PagesModule } from './UI/pages/pages.module';
 import { TemplatesModule } from './UI/templates/templates.module';
 import { ToastrModule } from 'ngx-toastr';
+import { QuillModule } from 'ngx-quill'
 
 
 
@@ -42,7 +43,12 @@ import { ToastrModule } from 'ngx-toastr';
         AppRoutingModule,
        
         TemplatesModule,
-        ToastrModule.forRoot(),
+        ToastrModule.forRoot({
+            timeOut: 1000,
+            positionClass: 'toast-top-right',
+            preventDuplicates: true,
+          }),
+        QuillModule.forRoot()
        
        
     ],
