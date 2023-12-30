@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TInputProps } from '../../molecules/input-molecule/inputDTO';
 import { FormControl, FormGroup,FormBuilder } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact',
@@ -51,7 +52,10 @@ export class ContactComponent {
     controlName: 'message'
   }
 
-constructor(private formBuilder :FormBuilder){}
+constructor(private formBuilder :FormBuilder,
+  private toastr: ToastrService){}
+
+
   data=''
   myForm= this.formBuilder.group({
     name: [''],
@@ -73,6 +77,7 @@ constructor(private formBuilder :FormBuilder){}
  
 
   submitForm(){
+    this.toastr.success('Your message sent successfully');
     this.data=JSON.stringify(this.myForm.value)
   }
   

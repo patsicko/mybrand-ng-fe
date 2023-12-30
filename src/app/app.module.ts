@@ -19,6 +19,7 @@ import { InputAtomComponent } from './UI/atoms/input-atom/input-atom.component';
 import { TextMoleculeComponent } from './UI/molecules/text-molecule/text-molecule.component';
 import { PagesModule } from './UI/pages/pages.module';
 import { TemplatesModule } from './UI/templates/templates.module';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -41,6 +42,7 @@ import { TemplatesModule } from './UI/templates/templates.module';
         AppRoutingModule,
        
         TemplatesModule,
+        ToastrModule.forRoot(),
        
        
     ],
