@@ -5,8 +5,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { TInputProps } from '../../molecules/input-molecule/inputDTO';
 
-
-
 @Component({
   selector: 'app-signup-page',
   templateUrl: './signup-page.component.html',
@@ -14,20 +12,12 @@ import { TInputProps } from '../../molecules/input-molecule/inputDTO';
 })
 export class SignupPageComponent  implements OnInit{
   
- 
-  isLoggedin?: boolean=false;
   close=faX;
   @Output() closeSignupFormEvent:EventEmitter<boolean> = new EventEmitter<boolean>();
 
- 
- 
-
   constructor(
-   
-  
     private formBuilder:FormBuilder
   ){}
-
 
   firstNameInput:TInputProps={
     type: 'text',
@@ -73,14 +63,9 @@ export class SignupPageComponent  implements OnInit{
 
 formData;
 
-
-
-
-
   ngOnInit() {
    
   }
-
 
   closeForm(value:boolean){
   this.closeSignupFormEvent.emit(value)
@@ -92,14 +77,6 @@ formData;
 
   }
 
-  // loginWithGoogle(): void {
-
-  
-  //   this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
-
-  
-    
-  // }
 
   
  

@@ -7,16 +7,8 @@
     </div>
   </div>
     
-
     <div id="conainer" class="container w-full">
       
-                <!-- <script src="https://accounts.google.com/gsi/client?hl=fr" async></script>
-            <div class="g_id_signin" data-locale="fr">
-            </div> -->
-       
-        
-        <div *ngIf="isLoggedin === false">
-
           <!-- <div id="g_id_onload"
           data-client_id="63754100136-r3ga1asjit8hr55jl4edb18apeu1nr0s.apps.googleusercontent.com"
           data-login_uri=""
@@ -31,31 +23,12 @@
               data-shape="rectangular"
               data-logo_alignment="left">
           </div> -->
-
-          <!-- <div>
-            <button type="button" (click)="loginWithGoogle()" class="btn btn-danger">Signup with Google</button>
-          </div> -->
-
-          
-
           <app-input-molecule [inputProps]="firstNameInput" [groupName]="signupForm"  ></app-input-molecule>
           <app-input-molecule [inputProps]="laststNameInput" [groupName]="signupForm"  ></app-input-molecule>
           <app-input-molecule [inputProps]="emailInput" [groupName]="signupForm"  ></app-input-molecule>
           <app-input-molecule [inputProps]="passwordInput" [groupName]="signupForm"  ></app-input-molecule>
           <app-button-atom btnValue="Signup" type="button" (click)="submitForm()" [groupName]="signupForm" [disabled]="!signupForm.valid" className="border bg-blue text-white p-2 mt-5 rounded-lg w-40 "></app-button-atom>
 
-
-
-
-
-
-          
-        </div>
-
-        
       </div>
-     
-
-     
-  
+      
 </div>

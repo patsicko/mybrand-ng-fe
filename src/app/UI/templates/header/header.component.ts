@@ -39,8 +39,9 @@ showFlex:boolean=false
   ]
 
   isDark:boolean=false;
-
+  @Output() toggleTheme:EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() showSignupEvent:EventEmitter<boolean>=new EventEmitter<boolean>();
+  @Output() showLoginEvent:EventEmitter<boolean>=new EventEmitter<boolean>();
   logedIn=null;
   showSignupButton:boolean=true;
 
@@ -66,11 +67,11 @@ showFlex:boolean=false
     this.showSignupEvent.emit(value)
 
   }
+
+  showLoginForm(value:boolean){
+   this.showLoginEvent.emit(value)
+  }
   
- 
-
-  @Output() toggleTheme:EventEmitter<boolean> = new EventEmitter<boolean>();
-
   changeTheme(){
     this.isDark=!this.isDark
 

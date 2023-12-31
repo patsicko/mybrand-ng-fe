@@ -11,6 +11,7 @@ export class AppComponent {
   isDark:boolean;
 
   showModel:boolean=false;
+  showLoginModel:boolean=false;
 
   showSignupModel(value){
   this.showModel=value
@@ -20,6 +21,13 @@ export class AppComponent {
     this.showModel=false
   }
 
+  showLogin(){
+  this.showLoginModel=true;
+  }
+
+  closeLoginModel(){
+    this.showLoginModel=false;
+  }
   changeTheme(theme:boolean){
   this.isDark=theme;
 

@@ -14,6 +14,7 @@
                 
                 <ng-container *ngIf="!logedIn">
                     <app-routerlink route="/login" linkClass="text-xl px-5" linkText="Login"></app-routerlink>
+                    
                 </ng-container>
                 <ng-container *ngIf="logedIn">
                         <app-routerlink route="/logout" linkClass="text-xl px-5" linkText="Logout"></app-routerlink>
@@ -30,12 +31,14 @@
                 </ng-container>
     
              
-                <ng-container *ngIf="showSignupButton && !logedIn">
-                    <app-routerlink route="" (click)="showSignupForm(true)" linkClass="text-xl px-5" linkText="Signup"></app-routerlink>
+                    <ng-container *ngIf="showSignupButton && !logedIn">
+                  
+                    <button type="button" class="text-xl px-5  hover:bg-blue hover:text-white mx-4 rounded-lg"   (click)="showSignupForm(true)">Signup</button>
                     </ng-container>
                     
                     <ng-container *ngIf="!logedIn">
-                        <app-routerlink route="/login" linkClass="text-xl px-5" linkText="Login"></app-routerlink>
+
+                        <button type="button" class="text-xl px-5 hover:bg-blue hover:text-white mx-4 rounded-lg" (click)="showLoginForm(true)">Login</button>
                     </ng-container>
                     
               
