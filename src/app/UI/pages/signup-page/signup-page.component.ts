@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input, EventEmitter, Output } from '@angular/core';
+import { faX } from '@fortawesome/free-solid-svg-icons';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {
-  SocialAuthService,
-  GoogleLoginProvider,
-  SocialUser,
-} from '@abacritt/angularx-social-login';
+
+import { TInputProps } from '../../molecules/input-molecule/inputDTO';
 
 
 
@@ -16,42 +14,94 @@ import {
 })
 export class SignupPageComponent  implements OnInit{
   
-  
-  socialUser!: SocialUser;
-  isLoggedin?: boolean;
+ 
+  isLoggedin?: boolean=false;
+  close=faX;
+  @Output() closeSignupFormEvent:EventEmitter<boolean> = new EventEmitter<boolean>();
 
+ 
  
 
   constructor(
    
-    private socialAuthService: SocialAuthService
+  
+    private formBuilder:FormBuilder
   ){}
 
-  ngOnInit() {
-   
-    this.socialAuthService.authState.subscribe((user) => {
-      this.socialUser = user;
-      this.isLoggedin = user != null;
-      console.log(this.socialUser);
-    });
-    (error) => {
-      console.error('Social login error:', error);
-    } 
+
+  firstNameInput:TInputProps={
+    type: 'text',
+    placeholder: 'First name',
+    className: 'border rounded p-2  w-full',
+    label: 'First name',
+    controlName: 'firstName',
+    
   }
-
-
-  loginWithGoogle(): void {
-
-  
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
-
-  
+  laststNameInput:TInputProps={
+    type: 'text',
+    placeholder: 'Last name',
+    className: 'border rounded p-2  w-full',
+    label: 'Lastst name',
+    controlName: 'lastName',
     
   }
 
-  logOut(): void {
-    this.socialAuthService.signOut();
+  emailInput:TInputProps={
+    type: 'email',
+    placeholder: 'email',
+    className: 'border rounded p-2  w-full',
+    label: 'Email',
+    controlName: 'email',
+    
   }
+
+  passwordInput:TInputProps={
+    type: 'password',
+    placeholder: 'Password',
+    className: 'border rounded p-2  w-full',
+    label: 'Password',
+    controlName: 'password',
+    
+  }
+
+ signupForm=this.formBuilder.group({
+  firstName:[''],
+  lastName:[''],
+  email:[''],
+  password:['']
+ })
+
+formData;
+
+
+
+
+
+  ngOnInit() {
+   
+  }
+
+
+  closeForm(value:boolean){
+  this.closeSignupFormEvent.emit(value)
+  }
+
+  submitForm(){
+    this.formData=this.signupForm.value;
+    console.log(this.formData);
+
+  }
+
+  // loginWithGoogle(): void {
+
+  
+  //   this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
+
+  
+    
+  // }
+
+  
  
  
 

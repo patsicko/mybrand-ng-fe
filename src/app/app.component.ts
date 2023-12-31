@@ -10,6 +10,16 @@ export class AppComponent {
 
   isDark:boolean;
 
+  showModel:boolean=false;
+
+  showSignupModel(value){
+  this.showModel=value
+  }
+
+  closeSignupModel(){
+    this.showModel=false
+  }
+
   changeTheme(theme:boolean){
   this.isDark=theme;
 

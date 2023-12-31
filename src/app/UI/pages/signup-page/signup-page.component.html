@@ -1,48 +1,58 @@
-<div class="text-2xl  w-full px-2 md:w-4/5 lg:w-1/2 mt-40 pb-36 contact ml-0 md:ml-20 lg:ml-80">
-    <app-text-atom>Signup</app-text-atom>
+<div class=" modal-content bg-white w-full h-full p-10 rounded-xl">
 
-    <div id="conainer" class="container" style="max-width: 550px">
-        <h2 class="text-center mb-5">Angular Login with Google</h2>
-
-
-        <div id="g_id_onload"
-        data-client_id="63754100136-r3ga1asjit8hr55jl4edb18apeu1nr0s.apps.googleusercontent.com"
-        data-login_uri=""
-        data-callback=""
-        data-auto_prompt="false">
+  <div class="flex justify-between">
+    <app-text-atom>Signup</app-text-atom>  
+    <div>
+      <fa-icon class="text-xl text-red font-black" (click)="closeForm(false)" [icon]="close"></fa-icon>
     </div>
-    <div class="g_id_signin"
-        data-type="standard"
-        data-size="large"
-        data-theme="outline"
-        data-text="sign_in_with"
-        data-shape="rectangular"
-        data-logo_alignment="left">
-    </div>
+  </div>
+    
 
-    <script src="https://accounts.google.com/gsi/client?hl=fr" async></script>
-<div class="g_id_signin" data-locale="fr">
-</div>
+    <div id="conainer" class="container w-full">
+      
+                <!-- <script src="https://accounts.google.com/gsi/client?hl=fr" async></script>
+            <div class="g_id_signin" data-locale="fr">
+            </div> -->
        
         
         <div *ngIf="isLoggedin === false">
-          <div>
-            <button type="button" (click)="loginWithGoogle()" class="btn btn-danger">Login with Google</button>
+
+          <!-- <div id="g_id_onload"
+          data-client_id="63754100136-r3ga1asjit8hr55jl4edb18apeu1nr0s.apps.googleusercontent.com"
+          data-login_uri=""
+          data-callback=""
+          data-auto_prompt="false">
           </div>
+          <div class="g_id_signin"
+              data-type="standard"
+              data-size="large"
+              data-theme="outline"
+              data-text="sign_in_with"
+              data-shape="rectangular"
+              data-logo_alignment="left">
+          </div> -->
+
+          <!-- <div>
+            <button type="button" (click)="loginWithGoogle()" class="btn btn-danger">Signup with Google</button>
+          </div> -->
+
+          
+
+          <app-input-molecule [inputProps]="firstNameInput" [groupName]="signupForm"  ></app-input-molecule>
+          <app-input-molecule [inputProps]="laststNameInput" [groupName]="signupForm"  ></app-input-molecule>
+          <app-input-molecule [inputProps]="emailInput" [groupName]="signupForm"  ></app-input-molecule>
+          <app-input-molecule [inputProps]="passwordInput" [groupName]="signupForm"  ></app-input-molecule>
+          <app-button-atom btnValue="Signup" type="button" (click)="submitForm()" [groupName]="signupForm" [disabled]="!signupForm.valid" className="border bg-blue text-white p-2 mt-5 rounded-lg w-40 "></app-button-atom>
+
+
+
+
+
+
+          
         </div>
 
-        <div *ngIf="isLoggedin === true">
-
-       
-          <img src="{{ socialUser.photoUrl }}" referrerpolicy="no-referrer">
-          <div>
-            <h4>{{ socialUser.firstName }}</h4>
-            <p>{{ socialUser.lastName }}</p>
-            <p>{{ socialUser.email }}</p>
-          </div>
-
-          <button type="button" (click)="logOut()" class="border bg-blue text-white p-3 rounded-lg">Log Out</button>
-        </div>
+        
       </div>
      
 

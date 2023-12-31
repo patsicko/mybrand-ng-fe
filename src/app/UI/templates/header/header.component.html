@@ -8,8 +8,8 @@
             </ng-container>
 
          
-            <ng-container *ngIf="showSignup && !logedIn">
-                <app-routerlink route="/signup" linkClass="text-xl px-5" linkText="Signup"></app-routerlink>
+            <ng-container *ngIf="showSignupButton && !logedIn">
+                <app-routerlink route="" (click)="showSignupForm(true)" linkClass="text-xl px-5" linkText="Signup"></app-routerlink>
                 </ng-container>
                 
                 <ng-container *ngIf="!logedIn">
@@ -30,16 +30,15 @@
                 </ng-container>
     
              
-                <ng-container *ngIf="showSignup && !logedIn">
-                    <app-routerlink route="/signup" linkClass="text-xl px-5" linkText="Signup"></app-routerlink>
+                <ng-container *ngIf="showSignupButton && !logedIn">
+                    <app-routerlink route="" (click)="showSignupForm(true)" linkClass="text-xl px-5" linkText="Signup"></app-routerlink>
                     </ng-container>
                     
                     <ng-container *ngIf="!logedIn">
                         <app-routerlink route="/login" linkClass="text-xl px-5" linkText="Login"></app-routerlink>
                     </ng-container>
-                    <ng-container *ngIf="logedIn">
-                            <app-routerlink route="/logout" linkClass="text-xl px-5" linkText="Logout"></app-routerlink>
-                    </ng-container>   
+                    
+              
             </div>
             
             
@@ -47,9 +46,29 @@
               
       
 
-        <div class="">
-            <fa-icon class="text-white text-xl" (click)="changeTheme()" *ngIf="isDark" [icon]="moon"></fa-icon>
-            <fa-icon class="text-white text-xl" (click)="changeTheme()" *ngIf="!isDark" [icon]="sun"></fa-icon>
+        <div class="flex justify-around items-center w-1/4">
+            <div>
+                <fa-icon class="text-white text-xl" (click)="changeTheme()" *ngIf="isDark" [icon]="moon"></fa-icon>
+                <fa-icon class="text-white text-xl" (click)="changeTheme()" *ngIf="!isDark" [icon]="sun"></fa-icon>
+            </div>
+
+
+            <div *ngIf="logedIn" class="flex gap-6 items-center w-3/4">
+               <div class="flex  gap-2 items-center justify-center ">
+                <img
+                src="{{ socialUser.photoUrl }}"
+                alt="User Photo"
+                referrerpolicy="no-referrer"
+                class="rounded-full h-8 w-8 object-cover border-2 border-gray-300"
+                />
+                <div class="text-xl">
+                  
+                  {{ socialUser.lastName }}
+                  
+                </div>
+               </div>
+                <app-routerlink route="" (click)="logOut()" linkClass="text-xl px-5" linkText="Logout"></app-routerlink>
+            </div>  
         </div>
 
         <ng-container *ngIf="!showFlex">

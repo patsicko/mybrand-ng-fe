@@ -6,17 +6,19 @@ import { HeaderComponent } from './header/header.component';
 
 
 
+
 @NgModule({
-  declarations: [
-    HeaderComponent
-  ],
-  imports: [
-    CommonModule,
-    AtomsModule,
-    FontAwesomeModule,
-  ],
-  exports:[
-    HeaderComponent
-  ]
+    declarations: [
+        HeaderComponent
+    ],
+    exports: [
+        HeaderComponent
+    ],
+    imports: [
+        CommonModule,
+        AtomsModule,
+        FontAwesomeModule,
+        
+    ]
 })
 export class TemplatesModule { }

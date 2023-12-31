@@ -2,8 +2,16 @@
 
 
 <div class="my-20 fixed mt-0 w-full header">
+    <div *ngIf="showModel" class="modal-container fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <!-- Modal content -->
+       
+            <app-signup-page class="w-1/3"  (closeSignupFormEvent)="closeSignupModel()"></app-signup-page>
+         
+          
+        
+      </div>
 
-<app-header (toggleTheme)="changeTheme($event)">
+<app-header (toggleTheme)="changeTheme($event)" (showSignupEvent)="showSignupModel($event)">
 
 </app-header>
 </div>

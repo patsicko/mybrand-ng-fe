@@ -1,12 +1,20 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { faSun,faMoon,faBars,faX } from '@fortawesome/free-solid-svg-icons';
+import {
+  SocialAuthService,
+  GoogleLoginProvider,
+  SocialUser,
+} from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+  socialUser: SocialUser;
+
+  constructor(private socialAuthService: SocialAuthService){}
 
 
 sun=faSun
@@ -32,8 +40,32 @@ showFlex:boolean=false
 
   isDark:boolean=false;
 
-  showSignup:boolean=true;
-  logedIn:boolean=false
+  @Output() showSignupEvent:EventEmitter<boolean>=new EventEmitter<boolean>();
+  logedIn=null;
+  showSignupButton:boolean=true;
+
+  ngOnInit(): void {
+    this.socialAuthService.authState.subscribe((user) => {
+      this.socialUser = user;
+      this.logedIn = user != null;
+      this.showSignupButton=false;
+      console.log(this.socialUser);
+    });
+    (error) => {
+      console.error('Social login error:', error);
+    } 
+  }
+
+  logOut(): void {
+    this.socialAuthService.signOut();
+    this.logedIn=null;
+  }
+
+  showSignupForm(value:boolean){
+
+    this.showSignupEvent.emit(value)
+
+  }
   
  
 

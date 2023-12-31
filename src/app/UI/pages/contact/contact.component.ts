@@ -81,16 +81,16 @@ constructor(private formBuilder :FormBuilder,
     this.toastr.success('Your message sent successfully');
     // this.toastr.error('Your message not sent successfully');
 
-    this.data=JSON.stringify(this.myForm.value)
+    this.data=this.myForm.value.message
+
+    console.log("data",this.myForm.value)
   }
   
-
 
 QuillConfiguration = {
   toolbar: [
     ['bold', 'italic', 'underline', 'strike'],        
     ['blockquote', 'code-block'],
-
     [{ 'header': 1 }, { 'header': 2 }],               
     [{ 'list': 'ordered'}, { 'list': 'bullet' }],
     [{ 'script': 'sub'}, { 'script': 'super' }],      
@@ -110,8 +110,5 @@ QuillConfiguration = {
     ['link', 'image', 'video']                        
   ]
 };
-
-
-
 
 }
