@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faSun,faMoon,faBars,faX } from '@fortawesome/free-solid-svg-icons';
 import {
   SocialAuthService,
@@ -42,7 +42,8 @@ showFlex:boolean=false
   @Output() toggleTheme:EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() showSignupEvent:EventEmitter<boolean>=new EventEmitter<boolean>();
   @Output() showLoginEvent:EventEmitter<boolean>=new EventEmitter<boolean>();
-  logedIn=null;
+  @Input() logedIn=null;
+  
   showSignupButton:boolean=true;
 
   ngOnInit(): void {

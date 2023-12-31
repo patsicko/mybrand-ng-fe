@@ -9,6 +9,8 @@ export class AppComponent {
   title = 'mybrand-ng-fe';
 
   isDark:boolean;
+  logedIn=null;
+  socialUser;
 
   showModel:boolean=false;
   showLoginModel:boolean=false;
@@ -31,6 +33,12 @@ export class AppComponent {
   changeTheme(theme:boolean){
   this.isDark=theme;
 
+  }
+
+
+  logedInUser(value){
+this.logedIn=value;
+this.socialUser=value
   }
 
 }

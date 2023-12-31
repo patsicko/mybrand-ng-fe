@@ -2,6 +2,7 @@ import { Component, OnInit,Input, EventEmitter, Output } from '@angular/core';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { TInputProps } from '../../molecules/input-molecule/inputDTO';
 
@@ -14,9 +15,11 @@ export class LoginPageComponent implements OnInit {
 
   close=faX;
   @Output() closeLoginFormEvent:EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() logedInEvent:EventEmitter<{ [key: string]: any }> = new EventEmitter<{ [key: string]: any }>();
 
   constructor(
-    private formBuilder:FormBuilder
+    private formBuilder:FormBuilder,
+    private router: Router
   ){}
 
 
@@ -56,6 +59,10 @@ formData;
 
   submitForm(){
     this.formData=this.login.value;
+    
+    this.router.navigate(['/admin-dashboard']);
+    this.logedInEvent.emit(this.formData)
+    this.closeLoginFormEvent.emit(false)
     console.log(this.formData);
 
   }

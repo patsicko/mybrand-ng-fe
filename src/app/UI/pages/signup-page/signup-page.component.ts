@@ -74,6 +74,7 @@ formData;
   submitForm(){
     this.formData=this.signupForm.value;
     console.log(this.formData);
+    this.closeSignupFormEvent.emit(false)
 
   }
 

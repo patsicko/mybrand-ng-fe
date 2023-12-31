@@ -6,6 +6,7 @@ import { HomepageComponent } from './UI/pages/homepage/homepage.component';
 import { BlogComponent } from './UI/pages/blog/blog.component';
 import { SignupPageComponent } from './UI/pages/signup-page/signup-page.component';
 import { LoginPageComponent } from './UI/pages/login-page/login-page.component';
+import { AdminDashboardComponent } from './UI/pages/admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   {
@@ -33,7 +34,12 @@ const routes: Routes = [
   {
     path:'login',
     component:LoginPageComponent
-  }
+  },
+  {
+    path:'admin-dashboard',
+    component:AdminDashboardComponent
+  },
+
   
 ];
 

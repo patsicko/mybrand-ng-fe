@@ -44,11 +44,6 @@
               
             </div>
             
-            
-               
-              
-      
-
         <div class="flex justify-around items-center w-1/4">
             <div>
                 <fa-icon class="text-white text-xl" (click)="changeTheme()" *ngIf="isDark" [icon]="moon"></fa-icon>
@@ -59,14 +54,14 @@
             <div *ngIf="logedIn" class="flex gap-6 items-center w-3/4">
                <div class="flex  gap-2 items-center justify-center ">
                 <img
-                src="{{ socialUser.photoUrl }}"
+                src="{{ socialUser?.photoUrl? socialUser.photoUrl:'../../../../../../assets/user.png' }}"
                 alt="User Photo"
                 referrerpolicy="no-referrer"
                 class="rounded-full h-8 w-8 object-cover border-2 border-gray-300"
                 />
                 <div class="text-xl">
                   
-                  {{ socialUser.lastName }}
+                  {{ socialUser?.lastName? socialUser.lastName:logedIn.email }}
                   
                 </div>
                </div>
