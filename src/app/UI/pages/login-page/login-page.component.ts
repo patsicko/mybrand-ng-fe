@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { TInputProps } from '../../molecules/input-molecule/inputDTO';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -14,13 +15,17 @@ import { TInputProps } from '../../molecules/input-molecule/inputDTO';
 export class LoginPageComponent implements OnInit {
 
   close=faX;
-  @Output() closeLoginFormEvent:EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output() logedInEvent:EventEmitter<{ [key: string]: any }> = new EventEmitter<{ [key: string]: any }>();
+  // @Output() closeLoginFormEvent:EventEmitter<boolean> = new EventEmitter<boolean>();
+  // @Output() logedInEvent:EventEmitter<{ [key: string]: any }> = new EventEmitter<{ [key: string]: any }>();
+  
 
   constructor(
     private formBuilder:FormBuilder,
-    private router: Router
-  ){}
+    private router: Router,
+    private authService:AuthService,
+  ){
+    
+  }
 
 
 
@@ -54,16 +59,24 @@ formData;
   }
 
   closeForm(value:boolean){
-  this.closeLoginFormEvent.emit(value)
+  this.authService.loginModelClosed(value)
   }
 
   submitForm(){
     this.formData=this.login.value;
+    this.authService.login(this.formData)
     
-    this.router.navigate(['/admin-dashboard']);
-    this.logedInEvent.emit(this.formData)
-    this.closeLoginFormEvent.emit(false)
-    console.log(this.formData);
+    // const storedUser=JSON.parse(localStorage.getItem("user"));
+
+    // if(storedUser.email===this.formData.email && storedUser.password===this.formData.password){
+    //   this.router.navigate(['/admin-dashboard']);
+    //   this.logedInEvent.emit(this.formData)
+    //   this.closeLoginFormEvent.emit(false)
+    //   console.log(this.formData);
+    // }else{
+    //   alert("Invalid credentials");
+    // }
+    
 
   }
 

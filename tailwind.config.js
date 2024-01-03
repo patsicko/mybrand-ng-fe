@@ -28,7 +28,8 @@ module.exports = {
       'sky':'#a9b4fa',
       'light-gray':'#30434e',
       'black':'#000000',
-      'red':'#ff0000'
+      'red':'#ff0000',
+      'dark-blue':'#042264'
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],

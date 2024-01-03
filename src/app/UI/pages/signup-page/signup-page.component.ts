@@ -4,6 +4,8 @@ import { faX } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { TInputProps } from '../../molecules/input-molecule/inputDTO';
+import { AuthService } from 'src/app/services/auth.service';
+import { ManualUser } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-signup-page',
@@ -13,10 +15,11 @@ import { TInputProps } from '../../molecules/input-molecule/inputDTO';
 export class SignupPageComponent  implements OnInit{
   
   close=faX;
-  @Output() closeSignupFormEvent:EventEmitter<boolean> = new EventEmitter<boolean>();
+  // @Output() closeSignupFormEvent:EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
-    private formBuilder:FormBuilder
+    private formBuilder:FormBuilder,
+    private authService:AuthService
   ){}
 
   firstNameInput:TInputProps={
@@ -55,29 +58,33 @@ export class SignupPageComponent  implements OnInit{
   }
 
  signupForm=this.formBuilder.group({
-  firstName:[''],
-  lastName:[''],
-  email:[''],
-  password:['']
+  firstName:['',[Validators.required]],
+  lastName:['',[Validators.required]],
+  email:['',[Validators.required, Validators.email]],
+  password:['',[Validators.required]]
  })
 
-formData;
+formData:ManualUser
 
   ngOnInit() {
    
   }
 
   closeForm(value:boolean){
-  this.closeSignupFormEvent.emit(value)
+ 
+
+  this.authService.signupModelClosed(value);
+  
   }
 
   submitForm(){
-    this.formData=this.signupForm.value;
+    this.formData=this.signupForm.value as ManualUser;
     console.log(this.formData);
-    this.closeSignupFormEvent.emit(false)
+    localStorage.setItem("user",JSON.stringify(this.formData));
+    this.authService.createManualUser(this.formData);
+   
 
   }
-
 
   
  

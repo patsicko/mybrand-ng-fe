@@ -5,6 +5,7 @@ import {
   GoogleLoginProvider,
   SocialUser,
 } from '@abacritt/angularx-social-login';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,7 @@ import {
 export class HeaderComponent implements OnInit {
   socialUser: SocialUser;
 
-  constructor(private socialAuthService: SocialAuthService){}
+  constructor(private socialAuthService: SocialAuthService, private authService:AuthService){}
 
 
 sun=faSun
@@ -25,25 +26,24 @@ showFlex:boolean=false
 
   routeList=[
     {
-      route:"/", linkClass:"text-xl px-5 my-5" , linkText:"Home"
+      route:"/", linkClass:"text-md md:text-xl px-5 py-1 md:py-2 rounded-md  hover:bg-gray mx-4" , linkText:"Home"
     },
     {
-      route:"/about", linkClass:"text-xl px-5 " ,linkText:"About"
+      route:"/about", linkClass:"text-md md:text-xl px-5 py-1 md:py-2 rounded-md  hover:bg-dark-blue hover:bg-gray mx-4" ,linkText:"About"
     },
     {
-      route:"/blog", linkClass:"text-xl px-5" , linkText:"blog"
+      route:"/blog", linkClass:"text-md md:text-xl px-5 py-1 md:py-2 rounded-md mt-3 hover:bg-dark-blue hover:bg-gray mx-4" , linkText:"blog"
     },
     {
-      route:"/contact", linkClass:"text-xl px-5" , linkText:"Contact"
+      route:"/contact", linkClass:"text-md md:text-xl px-5 py-1 md:py-2 rounded-md my-5 hover:bg-dark-blue hover:bg-gray mx-4" , linkText:"Contact"
     }
   ]
 
   isDark:boolean=false;
   @Output() toggleTheme:EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output() showSignupEvent:EventEmitter<boolean>=new EventEmitter<boolean>();
-  @Output() showLoginEvent:EventEmitter<boolean>=new EventEmitter<boolean>();
+ 
   @Input() logedIn=null;
-  
+
   showSignupButton:boolean=true;
 
   ngOnInit(): void {
@@ -51,26 +51,38 @@ showFlex:boolean=false
       this.socialUser = user;
       this.logedIn = user != null;
       this.showSignupButton=false;
+
       console.log(this.socialUser);
     });
     (error) => {
       console.error('Social login error:', error);
     } 
+
+  this.authService.onLoginSuccessEvent.subscribe((user)=>{
+    this.logedIn=user;
+    this.showSignupButton=false;
+
+  })
+   
   }
 
   logOut(): void {
-    this.socialAuthService.signOut();
+    if(this.socialUser){
+      this.socialAuthService?.signOut();
+    }
+   
     this.logedIn=null;
   }
 
   showSignupForm(value:boolean){
 
-    this.showSignupEvent.emit(value)
+    
+    this.authService.signupButtonClicked(value)
 
   }
 
   showLoginForm(value:boolean){
-   this.showLoginEvent.emit(value)
+   this.authService.loginButtonClicked(value);
   }
   
   changeTheme(){

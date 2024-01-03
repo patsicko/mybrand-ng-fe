@@ -27,7 +27,7 @@
           <app-input-molecule [inputProps]="laststNameInput" [groupName]="signupForm"  ></app-input-molecule>
           <app-input-molecule [inputProps]="emailInput" [groupName]="signupForm"  ></app-input-molecule>
           <app-input-molecule [inputProps]="passwordInput" [groupName]="signupForm"  ></app-input-molecule>
-          <app-button-atom btnValue="Signup" type="button" (click)="submitForm()" [groupName]="signupForm" [disabled]="!signupForm.valid" className="border bg-blue text-white p-2 mt-5 rounded-lg w-40 "></app-button-atom>
+          <app-button-atom btnValue="Signup" type="button" (click)="submitForm()" [groupName]="signupForm" [disabled]="!signupForm.valid" className="border bg-blue text-white p-2 mt-5 rounded-lg w-full md:w-40 "></app-button-atom>
 
       </div>
       
