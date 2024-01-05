@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
 
     this.authService.onSignupSuccessEvent.subscribe((data)=>{
       this.showLoginModel=true;
+
+      
     })
 
     this.authService.showLoginModelEvent.subscribe((value)=>{

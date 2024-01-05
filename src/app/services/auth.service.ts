@@ -45,13 +45,14 @@ export class AuthService {
 
  createManualUser(user:ManualUser){
   this.manualUsers.push(user);
-
+ console.log(this.manualUsers);
   this.onSignupSuccessEvent.emit(this.manualUsers);
   this.showSignupModelEvent.emit(false);
  }
 
  createSocialUser(user:SocialUser){
  this.socialUsers.push(user);
+ console.log(this.socialUsers)
  this.onSignupSuccessEvent.emit(this.socialUsers);
  }
  

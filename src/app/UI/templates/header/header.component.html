@@ -6,6 +6,7 @@
             <ng-container *ngFor="let route of routeList">
                 <app-routerlink [route]="route.route" [linkClass]="route.linkClass"  [linkText]="route.linkText" ></app-routerlink>
             </ng-container>
+            
 
          
             <ng-container *ngIf="showSignupButton && !logedIn">
@@ -50,6 +51,7 @@
             <div>
                 <fa-icon class="text-white text-xl" (click)="changeTheme()" *ngIf="isDark" [icon]="moon"></fa-icon>
                 <fa-icon class="text-white text-xl" (click)="changeTheme()" *ngIf="!isDark" [icon]="sun"></fa-icon>
+               
             </div>
 
 

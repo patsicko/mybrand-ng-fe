@@ -39,7 +39,7 @@
          
          <app-button-atom btnValue="submit" type="button" (click)="submitForm()" [groupName]="myForm" [disabled]="!myForm.valid" className="border bg-blue text-white p-2 rounded-lg w-40 "></app-button-atom>
        </div>
-     
+       {{myForm.value.message}}
        <div [innerHTML]="myForm.value.message">
 
        </div>

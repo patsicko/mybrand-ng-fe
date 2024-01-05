@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { faSun,faMoon,faBars,faX } from '@fortawesome/free-solid-svg-icons';
+import { faSun,faMoon,faBars,faX,faBucket} from '@fortawesome/free-solid-svg-icons';
 import {
   SocialAuthService,
   GoogleLoginProvider,
@@ -22,6 +22,7 @@ sun=faSun
 moon=faMoon
 bar=faBars
 close=faX
+
 showFlex:boolean=false
 
   routeList=[
@@ -37,6 +38,7 @@ showFlex:boolean=false
     {
       route:"/contact", linkClass:"text-md md:text-xl px-5 py-1 md:py-2 rounded-md my-5 hover:bg-dark-blue hover:bg-gray mx-4" , linkText:"Contact"
     }
+    
   ]
 
   isDark:boolean=false;
