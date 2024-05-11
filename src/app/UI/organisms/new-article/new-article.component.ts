@@ -4,6 +4,7 @@ import { FormControl, FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { AdminService } from 'src/app/services/admin.service';
+import { Article } from 'src/app/models/article.model';
 
 @Component({
   selector: 'app-new-article',
@@ -15,7 +16,8 @@ export class NewArticleComponent  {
 constructor(
   private formBuilder:FormBuilder, 
   private toaster:ToastrService,
-  private adminService:AdminService
+  private adminService:AdminService,
+
   ){}
   
  
@@ -65,6 +67,10 @@ newArticle=this.formBuilder.group({
 
 
 submitForm(){
+
+console.log('clicked')
+  
+  this.adminService.createArticle(this.newArticle.value as Article)
 
 }
 

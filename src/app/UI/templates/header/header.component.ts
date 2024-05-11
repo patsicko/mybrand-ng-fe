@@ -29,12 +29,7 @@ showFlex:boolean=false
     {
       route:"/", linkClass:"text-md md:text-xl px-5 py-1 md:py-2 rounded-md  hover:bg-gray mx-4" , linkText:"Home"
     },
-    {
-      route:"/about", linkClass:"text-md md:text-xl px-5 py-1 md:py-2 rounded-md  hover:bg-dark-blue hover:bg-gray mx-4" ,linkText:"About"
-    },
-    {
-      route:"/blog", linkClass:"text-md md:text-xl px-5 py-1 md:py-2 rounded-md mt-3 hover:bg-dark-blue hover:bg-gray mx-4" , linkText:"blog"
-    },
+   
     {
       route:"/contact", linkClass:"text-md md:text-xl px-5 py-1 md:py-2 rounded-md my-5 hover:bg-dark-blue hover:bg-gray mx-4" , linkText:"Contact"
     }

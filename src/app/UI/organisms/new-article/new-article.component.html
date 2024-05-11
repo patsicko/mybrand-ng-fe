@@ -12,6 +12,7 @@
         <app-input-molecule [inputProps]="blogContent" [groupName]="newArticle" [quillConfigurationModule]="QuillConfiguration"></app-input-molecule>
         
         <app-button-atom btnValue="submit" type="button" (click)="submitForm()"  [groupName]="newArticle" [disabled]="!newArticle.valid" className="border bg-blue text-white p-2 rounded-lg w-40 mt-5 "></app-button-atom>
+       
       </div>
               
     

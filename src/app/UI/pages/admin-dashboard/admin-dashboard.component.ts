@@ -34,4 +34,11 @@ showArticleForm(value:boolean){
 
 }
 
+showArticleList(){
+  const articles=this.adminService.getArticles();
+
+  console.log("articles got",articles)
+}
+
+
 }

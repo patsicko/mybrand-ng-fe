@@ -26,6 +26,7 @@ export class HomepageComponent implements OnInit{
   ){}
 
   sentence='Hello there ! 🌎  My name is MANIBAHO Patrick, I am a Fullstack Software Engineer,  Welcome to my brand !';
+
   displayedText='';
  
   welcome:boolean=false;
